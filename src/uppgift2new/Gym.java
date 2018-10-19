@@ -60,8 +60,10 @@ public class Gym {
     public static void writeRecord (File f){   
       try (PrintWriter p= new PrintWriter(new BufferedWriter
                          (new FileWriter(f,true)))){
-          String info=Medlem.medlemNamn+"\t"+Medlem.medlemNum+"\t"+LocalDateTime.now();
-          p.print(info+"\n");
+          StringBuilder info=new StringBuilder();
+          info.append(Medlem.medlemNamn).append("\t").append(Medlem.medlemNum).append("\t")
+                  .append(LocalDateTime.now());          
+          p.print(info.append("\n"));
           p.close();
      }
      
